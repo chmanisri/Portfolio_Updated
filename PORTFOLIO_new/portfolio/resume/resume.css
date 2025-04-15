@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+form
+{
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 20px;    
+}

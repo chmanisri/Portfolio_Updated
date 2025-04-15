@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+    :root {
+      --primary-color: #465485;
+      --primary-color-dark: #3f4370;
+      --text-dark: #333333;
+      --text-light: #767368;
+      --white: #ffffff;
+      --success-color: #4caf50;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      margin-top: 0%;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      margin-top: 0%;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      border: 2px solid var(--primary-color);
+      /* Add border around the container */
+      border-radius: 10px;
+      /* Add border radius */
+      padding: 1rem;
+      /* Add padding */
+    }
+
+    .content {
+      margin-left: auto;
+      padding: 1rem;
+      width: 100%;
+      max-width: 550px;
+    }
+
+    .content h1 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--primary-color);
+    }
+
+    .content form {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .input__row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .input__group {
+      width: 100%;
+      position: relative;
+    }
+
+    .input__group input,
+    .input__group textarea,
+    .input__group select,
+    .input__group input[type="file"] {
+      width: 100%;
+      padding: 1rem 0;
+      font-size: 1rem;
+      color: var(--text-dark);
+      outline: none;
+      border: none;
+      border-bottom: 2px solid var(--primary-color);
+    }
+
+    /* for error */
+    .input__group.error input,
+    .input__group.error textarea,
+    .input__group.error select,
+    .input__group.error input[type="file"] {
+      border-color: red;
+    }
+
+    .input__group.success input,
+    .input__group.success textarea,
+    .input__group.success select,
+    .input__group.success input[type="file"] {
+      border-color: var(--success-color);
+      /* Add success border color */
+    }
+
+    .input__group label {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      font-size: 1rem;
+      color: var(--text-dark);
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    .input__group input:focus~label,
+    .input__group input:not(:placeholder-shown)~label,
+    .input__group textarea:focus~label,
+    .input__group textarea:not(:placeholder-shown)~label,
+    .input__group select:focus~label,
+    .input__group select:not(:placeholder-shown)~label,
+    .input__group input[type="file"]:focus~label,
+    .input__group input[type="file"]:not(:placeholder-shown)~label {
+      font-size: 0.8rem;
+      top: -0.5rem;
+      color: var(--text-light);
+    }
+
+    .input__group .error__field,
+    .input__group .success__field {
+      position: absolute;
+      left: 0;
+      bottom: -22px;
+      font-size: 0.8rem;
+      transition: 0.3s;
+    }
+
+    .input__group .success__field {
+      color: var(--success-color);
+      /* Add success text color */
+    }
+
+    .content button {
+      max-width: fit-content;
+      margin: auto;
+      padding: 1rem 2rem;
+      outline: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 200;
+      color: var(--white);
+      background-image: linear-gradient(to bottom,
+          var(--primary-color),
+          var(--primary-color-dark));
+      border-radius: 1rem;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .image {
+      height: 100%;
+      margin-left: 8rem;
+      background-image: url("./img/register.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  </style>
+  <title>Registration Page</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+      <h1>Registration Form</h1>
+      <form action="#" id="form">
+        <div class="input__row">
+          <div class="input__group">
+            <input type="text" id="firstname" name="firstname" placeholder=" " />
+            <label for="firstname">First Name</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+          <div class="input__group">
+            <input type="text" id="lastname" name="lastname" placeholder=" " />
+            <label for="lastname">Last Name</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+        </div>
+        <div class="input__row">
+          <div class="input__group">
+            <input type="text" id="username" name="username" placeholder=" " />
+            <label for="username">User Name</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+          <div class="input__group">
+            <input type="text" id="email" name="email" placeholder=" " />
+            <label for="email">Email</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+        </div>
+        <div class="input__row">
+          <div class="input__group">
+            <input type="text" id="phone" name="phone" placeholder=" " />
+            <label for="phone">Phone Number</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+          <div class="input__group">
+            <input type="date" id="dob" name="dob" placeholder=" " />
+            <label for="dob">Date of Birth</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+        </div>
+        <div class="input__row">
+          <div class="input__group">
+            <select id="country" name="country">
+              <option value="">Select Country</option>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+              <option value="UK">UK</option>
+            </select>
+            <label for="country">Country</label>
+            <span class="error__field" - style="color: red"></span>
+          </div>
+          <div class="input__group">
+            <input type="file" id="image" name="image" accept="image/*" />
+            <label for="image">Image</label>
+            <span class="error__field" style="color: red"></span>
+          </div>
+        </div>
+        <div class="input__row">
+          <div class="input__group">
+            <textarea id="address" name="address" rows="2" placeholder=" "></textarea>
+            <label for="address">Address</label>
+            <span class="error__field" style="color: red"></span><br />
+          </div>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+    <div class="image"></div>
+  </div>
+  <script>
+    // get the elements from the document
+    const form = document.getElementById("form");
+    const firstName = document.getElementById("firstname");
+    const lastName = document.getElementById("lastname");
+    const userName = document.getElementById("username");
+    const email = document.getElementById("email");
+    const phone = document.getElementById("phone");
+    const address = document.getElementById("address"); // Added address element
+    const dob = document.getElementById("dob"); // Added dob element
+    const country = document.getElementById("country"); // Added country element
+    const image = document.getElementById("image"); // Added image element
+    // add submit eventlistener to form element
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      // function to validate form fields
+      validateForm();
+    });
+    // type of messages for individual form fields
+    const messageType = {
+      ERROR: "ERROR",
+      SUCCESS: "SUCCESS",
+    };
+    // set success or error message and css classes
+    const setMessage = (type, element, message = "") => {
+      // get the parent element of input element
+      const inputGroup = element.parentElement;
+      // get the error element for above input
+      const errorField = inputGroup.querySelector(".error__field");
+      // set success or error
+      switch (type) {
+        case messageType.ERROR:
+          errorField.innerText = message;
+          inputGroup.classList.add("error");
+          inputGroup.classList.remove("success"); // Remove success class
+          break;
+        case messageType.SUCCESS:
+          errorField.innerText = message;
+          //inputGroup.classList.remove("error");
+          inputGroup.classList.add("success"); // Add success class
+          break;
+      }
+    };
+    // check if the value is numeric
+    const isNumeric = (num) => {
+      return !isNaN(num - parseFloat(num));
+    };
+    // check if the email is valid
+    const isValidEmail = (val) => {
+      return val.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
+    };
+    // validate form fields function
+    const validateForm = () => {
+      // get value of all the form fields
+      const firstNameValue = firstName.value.trim();
+      const lastNameValue = lastName.value.trim();
+      const userNameValue = userName.value.trim();
+      const emailValue = email.value.trim();
+      const phoneValue = phone.value.trim();
+      const addressValue = address.value.trim(); // Added address value
+      const dobValue = dob.value.trim(); // Added dob value
+      const countryValue = country.value.trim(); // Added country value
+      const imageValue = image.value.trim(); // Added image value
+      // is form valid variable
+      let isFormValid = true;
+      // check first name field for error and success
+      if (firstNameValue === "") {
+        setMessage(messageType.ERROR, firstName, "First Name is required");
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, firstName);
+      }
+      // check last name field for error and success
+      if (lastNameValue === "") {
+        setMessage(messageType.ERROR, lastName, "Last Name is required");
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, lastName);
+      }
+      // check user name field for error and success
+      if (userNameValue === "") {
+        setMessage(messageType.ERROR, userName, "User Name is required");
+        isFormValid = false;
+      } else if (userNameValue.length < 3 || userNameValue > 20) {
+        setMessage(
+          messageType.ERROR,
+          userName,
+          "User Name should contain 3-20 characters"
+        );
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, userName);
+      }
+      // check email field for error and success
+      if (emailValue === "") {
+        setMessage(messageType.ERROR, email, "Email is required");
+        isFormValid = false;
+      } else if (!isValidEmail(emailValue)) {
+        setMessage(messageType.ERROR, email, "Email is invalid");
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, email);
+      }
+      // check phone number field for error and success
+      if (phoneValue === "") {
+        setMessage(messageType.ERROR, phone, "Phone Number is required");
+        isFormValid = false;
+      } else if (phoneValue.length !== 10) {
+        setMessage(
+          messageType.ERROR,
+          phone,
+          "Phone number should contain 10 digits"
+        );
+        isFormValid = false;
+      } else if (!isNumeric(phoneValue)) {
+        setMessage(
+          messageType.ERROR,
+          phone,
+          "Phone number should only contain digits"
+        );
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, phone);
+      }
+      // Check address field for error and success
+      if (addressValue === "") {
+        setMessage(messageType.ERROR, address, "Address is required");
+        isFormValid = false;
+      } else if (addressValue.length < 5) {
+        setMessage(
+          messageType.ERROR,
+          address,
+          "Address should be at least 5 characters long"
+        );
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, address);
+      }
+      // Check dob field for error and success
+      if (dobValue === "") {
+        setMessage(messageType.ERROR, dob, "Date of Birth is required");
+        isFormValid = false;
+      } else {
+        const today = new Date();
+        const dobDate = new Date(dobValue);
+        if (dobDate >= today) {
+          setMessage(
+            messageType.ERROR,
+            dob,
+            "Date of Birth must be in the past"
+          );
+          isFormValid = false;
+        } else {
+          setMessage(messageType.SUCCESS, dob);
+        }
+      }
+      // Check country field for error and success
+      if (countryValue === "") {
+        setMessage(messageType.ERROR, country, "Please select a country");
+        isFormValid = false;
+      } else {
+        setMessage(messageType.SUCCESS, country);
+      }
+      // Check image field for error and success
+      if (imageValue === "") {
+        setMessage(messageType.ERROR, image, "Please choose an image");
+        isFormValid = false;
+      } else {
+        const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+        if (!allowedExtensions.exec(imageValue)) {
+          setMessage(
+            messageType.ERROR,
+            image,
+            "Only JPG, JPEG, or PNG images are allowed"
+          );
+          isFormValid = false;
+        } else {
+          setMessage(messageType.SUCCESS, image);
+        }
+      }
+      if (isFormValid) {
+        // form is valid and can be submitted
+        alert("Form Submitted");
+      }
+    };
+  </script>
+</body>
+
+</html>
